@@ -1,16 +1,10 @@
-// Arup Guha
-// 10/24/01 edited 2/24/04 for COP 3502 Lecture
-// Linked List Example
-
-// Edited on 6/1/07 to include an example from Recitation Sheet #3 for COP 3502
-
-// Edited on 2/3/09 to include two recursive functions: delete and reverse.
+// Rachel Biesiedzinski
 
 #include <stdio.h>
+#include <stdlib.h>
 
 // Struct used to form a linked list of integers.
 struct ll {
-
   int data;
   struct ll *next;
 };
@@ -107,12 +101,10 @@ int main() {
   D = reverseIter2(D);
   print(D);
 
-  system("PAUSE");
   return 0;
 }
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: each value in the list will be printed, in order.
+// Function: each value in the list will be printed, in order.
 void print(struct ll *front) {
 
   while (front !=NULL) {
@@ -123,8 +115,7 @@ void print(struct ll *front) {
   printf("\n");
 }
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: if val is stored in the list, 1 will be returned,
+// Function: if val is stored in the list, 1 will be returned,
 //                 otherwise 0 will be.
 int search(struct ll *front, int val) {
   while (front != NULL) {
@@ -137,8 +128,7 @@ int search(struct ll *front, int val) {
 
 }
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: a new node storing num will be inserted to the front of
+// Function: a new node storing num will be inserted to the front of
 //                 this list and a pointer to this node will be returned.
 struct ll* insert_front(struct ll *front, int num) {
 
@@ -153,8 +143,7 @@ struct ll* insert_front(struct ll *front, int num) {
   return temp;
 }
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: a new node containing num will be created and added
+// Function: a new node containing num will be created and added
 //                 to the end of the linked listed pointed to by front.
 struct ll* insert_back(struct ll *front, int num) {
 
@@ -185,9 +174,7 @@ struct ll* insert_back(struct ll *front, int num) {
 }
 
 
-// Pre-condition: front points to the head of a linked list structure that
-//                has its nodes arranged in ascending numerical order.
-// Post-condition: a new node containing num will be created and added
+// Function: a new node containing num will be created and added
 //                 into the appropriate position in the linked list
 //                 front and a pointer to the front of this new linked
 //                 list will be returned.
@@ -230,8 +217,7 @@ struct ll* insert_inorder(struct ll *front, int num) {
 }
 
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: The first node that contains the value num will be
+// Function: The first node that contains the value num will be
 //                 removed from the list. A pointer to the front of the
 //                 list will be returned. If no such value is stored,
 //                 the list will remain unchanged.
@@ -263,8 +249,8 @@ struct ll* delete(struct ll *front, int num) {
   }
   return front;
 }
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: The first node that contains the value num will be
+
+// Function: The first node that contains the value num will be
 //                 removed from the list. A pointer to the front of the
 //                 list will be returned. If no such value is stored,
 //                 the list will remain unchanged.
@@ -295,8 +281,7 @@ struct ll* deleteRec(struct ll *front, int num) {
   return front; // This is unchanged.
 }
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: A pointer will be returned to a newly formed list
+// Function: A pointer will be returned to a newly formed list
 //                 that contains all the elements of the old list,
 //                 reversed.
 struct ll* reverseRec(struct ll *front) {
@@ -322,8 +307,7 @@ struct ll* reverseRec(struct ll *front) {
 
 }
 
-// Pre-condition: front points to the head of a linked list structure.
-// Post-condition: A pointer will be returned to a newly formed list
+// Function: A pointer will be returned to a newly formed list
 //                 that contains all the elements of the old list,
 //                 reversed.
 struct ll* reverse(struct ll *front) {
@@ -366,9 +350,7 @@ struct ll* reverseIter2(struct ll* front) {
 }
 
 
-// Pre-condition: first and second point to the head of a linked list
-//                structure
-// Post-condition: The last element in first will be linked to the first
+// Function: The last element in first will be linked to the first
 //                 element in second. Then a pointer to the beginning of
 //                 this concatenated list is returned. Note that the
 //                 original lists will not truly exist after this
@@ -395,9 +377,7 @@ struct ll* concat(struct ll *first, struct ll *second) {
 
 }
 
-// Pre-condition: first and second point to the head of a linked list
-//                structure
-// Post-condition: A new list will be created that stores the maximum
+// Function: A new list will be created that stores the maximum
 //                 value in either list at each position. Thus, the kth
 //                 value in the newly created list will be the maximum
 //                 of the kth value in the first list and the kth value
@@ -451,8 +431,7 @@ struct ll* maxlist(struct ll *first, struct ll *second) {
   return max;
 }
 
-// Pre-condition: p points to a linked list.
-// Post-condition: All the memory for the linked list pointed to by p is
+// Function: All the memory for the linked list pointed to by p is
 //                 freed for use.
 void dellist(struct ll *p) {
 
@@ -466,8 +445,7 @@ void dellist(struct ll *p) {
   }
 }
 
-// Pre-condition: The linked lists pointed to by A and B are of the same length.
-// Post-condition: A pointer to a new linked list will be returned where the
+// Function: A pointer to a new linked list will be returned where the
 //                 new list stores the sums of the corresponding values of the
 //                 two input lists.
 struct ll* Add(struct ll* A, struct ll* B) {
@@ -506,8 +484,7 @@ struct ll* Add(struct ll* A, struct ll* B) {
 	return C;
 }
 
-// Pre-condition: The linked lists pointed to by A and B are of the same length.
-// Post-condition: A pointer to a new linked list will be returned where the
+// Function: A pointer to a new linked list will be returned where the
 //                 new list stores the sums of the corresponding values of the
 //                 two input lists.
 struct ll* RecAdd(struct ll* A, struct ll* B) {
@@ -528,3 +505,4 @@ struct ll* RecAdd(struct ll* A, struct ll* B) {
     // Return a pointer to the front of our newly created list.
     return tmp;
 }
+
